@@ -1,0 +1,14 @@
+[Unit]
+Description=Raspberry Event Emmiter
+After=network-online.target
+
+[Service]
+ExecStart=export FLASK_APP=hello.py && cd /opt/demo-raspberry-event/ && flask run
+WorkingDirectory=/opt/demo-raspberry-event/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
